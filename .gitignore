@@ -36,6 +36,6 @@ yarn-error.*
 *.tsbuildinfo
 
 #config
-/app/config/*
+config/
 
 app-example
