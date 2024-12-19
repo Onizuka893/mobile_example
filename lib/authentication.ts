@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 
 export const Register = async (email: string, password: string) => {
@@ -23,6 +24,29 @@ export const Logout = async () => {
   }
 };
 
+export const UpdateUsername = async (username: string) => {
+  try {
+    if (!auth.currentUser) return;
+    await updateProfile(auth.currentUser, {
+      displayName: username,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const GetUser = () => {
   return auth.currentUser;
+};
+
+export const GetUserEmail = () => {
+  if (!auth.currentUser) return "";
+  if (!auth.currentUser.email) return "";
+  return auth.currentUser.email;
+};
+
+export const GetUserName = () => {
+  if (!auth.currentUser) return "username";
+  if (!auth.currentUser.displayName) return "username";
+  return auth.currentUser.displayName;
 };

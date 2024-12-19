@@ -7,8 +7,24 @@ export default function HomeLayout() {
         headerShown: true, // Hides the header for all screens in this stack
       }}
     >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="settings" />
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "Home",
+        }}
+      />
+      <Stack.Screen
+        name="createList"
+        options={{
+          title: "Maak een lijstje",
+        }}
+      />
+      <Stack.Screen
+        name="settings"
+        options={{
+          title: "Instellingen",
+        }}
+      />
     </Stack>
   );
 }

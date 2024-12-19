@@ -1,4 +1,6 @@
 import { useFonts } from "expo-font";
+import "@/global.css";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
@@ -8,6 +10,7 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -44,14 +47,18 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerShown: true, // Hides the header for all screens in this stack
-      }}
-    >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="login" />
-      <Stack.Screen name="(home)" />
-    </Stack>
+    <GluestackUIProvider mode="light">
+      <GestureHandlerRootView style={[{ flex: 1 }]}>
+        <Stack
+          screenOptions={{
+            headerShown: false, // Hides the header for all screens in this stack
+          }}
+        >
+          <Stack.Screen name="index" />
+          <Stack.Screen name="login" />
+          <Stack.Screen name="(home)" />
+        </Stack>
+      </GestureHandlerRootView>
+    </GluestackUIProvider>
   );
 }
