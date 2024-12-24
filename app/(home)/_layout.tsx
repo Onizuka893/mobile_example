@@ -20,6 +20,12 @@ export default function HomeLayout() {
         }}
       />
       <Stack.Screen
+        name="[user]"
+        options={{
+          title: "Lijst van gebruiker",
+        }}
+      />
+      <Stack.Screen
         name="settings"
         options={{
           title: "Instellingen",
