@@ -43,6 +43,7 @@ export default function HomeScreen() {
           <Button onPress={handleQuery}>Zoek</Button>
         </VStack>
         <Text className="bg-slate-400 h-52 p-2">Stappenplan uitleg</Text>
+        <Link href={"/camera"}>Camera</Link>
       </VStack>
     </Box>
   );

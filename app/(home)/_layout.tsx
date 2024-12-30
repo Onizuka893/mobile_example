@@ -31,6 +31,12 @@ export default function HomeLayout() {
           title: "Instellingen",
         }}
       />
+      <Stack.Screen
+        name="camera"
+        options={{
+          title: "Camera",
+        }}
+      />
     </Stack>
   );
 }
